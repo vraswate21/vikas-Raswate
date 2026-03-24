@@ -58,6 +58,22 @@ document.addEventListener('DOMContentLoaded', () => {
             navLinks.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
         });
+
+        // Close menu when a nav link is clicked
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            });
+        });
+
+        // Close menu when tapping outside
+        document.addEventListener('click', (e) => {
+            if (!nav.contains(e.target)) {
+                navLinks.classList.remove('active');
+                mobileMenuToggle.classList.remove('active');
+            }
+        });
     }
 
     // Particle.js initialization
