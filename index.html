@@ -15,13 +15,39 @@
 
     <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
     <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230A0E1A'/%3E%3Ctext x='50' y='72' text-anchor='middle' font-size='58' font-weight='bold' fill='%2300D9FF' font-family='monospace'%3EVR%3C/text%3E%3C/svg%3E">
+    <meta name="robots" content="index, follow">
+    <meta property="og:url" content="https://vikasraswate.dev">
+    <link rel="canonical" href="https://vikasraswate.dev">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Vikas Raswate",
+        "jobTitle": "DevOps Engineer",
+        "description": "DevOps Engineer specializing in cloud-native platforms, CI/CD pipelines, Kubernetes, and Terraform IaC for international clients in the US and Australia.",
+        "email": "vikasraswate711@gmail.com",
+        "telephone": "+918329458328",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Hyderabad",
+            "addressRegion": "Telangana",
+            "addressCountry": "IN"
+        },
+        "knowsAbout": ["DevOps", "Kubernetes", "Terraform", "AWS", "Docker", "CI/CD", "GitOps", "DevSecOps", "Prometheus", "Grafana"],
+        "sameAs": [
+            "https://linkedin.com/in/vikas-raswate-b255352a6",
+            "https://github.com/vraswate21"
+        ]
+    }
+    </script>
 </head>
 <body>
+    <div id="scroll-progress" role="progressbar" aria-label="Page scroll progress" aria-valuemin="0" aria-valuemax="100"></div>
     <div class="preloader">
         <div class="terminal-loader">
             <span class="terminal-text">$ initializing portfolio...</span>
@@ -41,7 +67,7 @@
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <button class="mobile-menu-toggle">
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
@@ -1115,8 +1141,8 @@
                     </div>
                     
                     <div class="quick-actions">
-                        <a href="https://wa.me/918329458328" class="btn btn-whatsapp" target="_blank">
-                            <i class="fab fa-whatsapp"></i>
+                        <a href="https://wa.me/918329458328?text=Hi%20Vikas%2C%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20DevOps%20opportunity%20with%20you." class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Chat on WhatsApp">
+                            <i class="fab fa-whatsapp" aria-hidden="true"></i>
                             <span>Chat on WhatsApp</span>
                         </a>
                         <a href="Vikas_Raswate___Dev_Ops_.pdf" download class="btn btn-outline">
@@ -1157,14 +1183,14 @@
                 <p>&copy; 2026 Vikas Raswate. All Rights Reserved.</p>
             </div>
             <div class="footer-right">
-                <a href="https://github.com/vraswate21" target="_blank" title="GitHub">
-                    <i class="fab fa-github"></i>
+                <a href="https://github.com/vraswate21" target="_blank" rel="noopener noreferrer" aria-label="GitHub profile">
+                    <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
-                <a href="https://linkedin.com/in/vikas-raswate-b255352a6" target="_blank" title="LinkedIn">
-                    <i class="fab fa-linkedin"></i>
+                <a href="https://linkedin.com/in/vikas-raswate-b255352a6" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn profile">
+                    <i class="fab fa-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="mailto:vikasraswate711@gmail.com" title="Email">
-                    <i class="fas fa-envelope"></i>
+                <a href="mailto:vikasraswate711@gmail.com" aria-label="Send email">
+                    <i class="fas fa-envelope" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
@@ -1172,7 +1198,7 @@
 
     <div id="lightbox" class="lightbox">
         <div class="lightbox-content">
-            <button class="close-btn">&times;</button>
+            <button class="close-btn" aria-label="Close">&times;</button>
             <h3 id="lightbox-title"></h3>
             <div id="lightbox-image-container"></div>
             <p id="lightbox-description"></p>
@@ -1182,5 +1208,8 @@
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="app.js"></script>
+    <button id="back-to-top" aria-label="Back to top" title="Back to top">
+        <i class="fas fa-arrow-up" aria-hidden="true"></i>
+    </button>
 </body>
 </html>

@@ -55,8 +55,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileMenuToggle) {
         mobileMenuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+            const isOpen = navLinks.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
+            mobileMenuToggle.setAttribute('aria-expanded', isOpen);
         });
 
         // Close menu when a nav link is clicked
@@ -76,8 +77,36 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Particle.js initialization
-    if (typeof particlesJS !== 'undefined') {
+    // Scroll progress bar
+    const scrollProgress = document.getElementById('scroll-progress');
+    if (scrollProgress) {
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.scrollY;
+            const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+            const pct = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+            scrollProgress.style.width = pct + '%';
+            scrollProgress.setAttribute('aria-valuenow', Math.round(pct));
+        }, { passive: true });
+    }
+
+    // Back to top button
+    const backToTop = document.getElementById('back-to-top');
+    if (backToTop) {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 400) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        }, { passive: true });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    }
+
+    // Particle.js initialization — skip on mobile to save resources
+    if (typeof particlesJS !== 'undefined' && window.innerWidth > 768) {
         particlesJS('particles-js', {
             particles: {
                 number: {
@@ -295,31 +324,33 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
-    // Add cursor follower effect (optional enhancement)
-    const cursor = document.createElement('div');
-    cursor.className = 'custom-cursor';
-    document.body.appendChild(cursor);
+    // Custom cursor — desktop non-touch only
+    const isTouchDevice = window.matchMedia('(pointer: coarse)').matches;
+    if (window.innerWidth > 768 && !isTouchDevice) {
+        const cursor = document.createElement('div');
+        cursor.className = 'custom-cursor';
+        document.body.appendChild(cursor);
 
-    let mouseX = 0;
-    let mouseY = 0;
-    let cursorX = 0;
-    let cursorY = 0;
+        let mouseX = 0, mouseY = 0, cursorX = 0, cursorY = 0;
 
-    document.addEventListener('mousemove', (e) => {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        }, { passive: true });
 
-    function animateCursor() {
-        const speed = 0.2;
-        cursorX += (mouseX - cursorX) * speed;
-        cursorY += (mouseY - cursorY) * speed;
-        cursor.style.left = cursorX + 'px';
-        cursor.style.top = cursorY + 'px';
-        requestAnimationFrame(animateCursor);
-    }
+        // Grow cursor on interactive elements
+        document.querySelectorAll('a, button, .project-card').forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.style.transform = 'translate(-50%, -50%) scale(2)');
+            el.addEventListener('mouseleave', () => cursor.style.transform = 'translate(-50%, -50%) scale(1)');
+        });
 
-    if (window.innerWidth > 768) {
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.2;
+            cursorY += (mouseY - cursorY) * 0.2;
+            cursor.style.left = cursorX + 'px';
+            cursor.style.top = cursorY + 'px';
+            requestAnimationFrame(animateCursor);
+        }
         animateCursor();
     }
 

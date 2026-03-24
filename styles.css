@@ -1891,6 +1891,67 @@ body {
     border-color: var(--accent-success);
 }
 
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
+    z-index: 10000;
+    transition: width 0.1s linear;
+}
+
+/* Custom Cursor */
+.custom-cursor {
+    position: fixed;
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--accent-primary);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+    transition: border-color 0.2s ease, transform 0.1s ease;
+    mix-blend-mode: difference;
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+    border: none;
+    border-radius: 50%;
+    color: var(--bg-primary);
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 217, 255, 0.3);
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#back-to-top:hover {
+    box-shadow: 0 8px 25px rgba(0, 217, 255, 0.5);
+    transform: translateY(-3px);
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
     .hero-grid {
