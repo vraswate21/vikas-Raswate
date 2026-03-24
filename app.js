@@ -151,6 +151,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const lightboxDescription = document.getElementById('lightbox-description');
 
     const projectDetails = {
+        'covered-call': {
+            title: 'Covered Call Engine — Production SaaS Platform',
+            image: 'https://images.unsplash.com/photo-1611974586288-db281d60c537?w=800&h=500&fit=crop',
+            description: 'Live production SaaS trading platform for options trading deployed on Google Cloud. Full-stack containerized application (FastAPI backend + React.js frontend + MongoDB database) with automated CI/CD pipelines. Integrated PayPal Live and Sandbox payment gateways with per-mode credential management. AI-powered trade suggestion engine powered by Google Gemini API with secure token management. IBKR CSV transaction parser with lifecycle-aware trade grouping and automated processing. Enterprise-grade DevSecOps with secrets management, environment isolation, API key rotation, and secure configuration management.'
+        },
+        'mids-platform': {
+            title: 'Enterprise DevOps Platform — MIDS Corp USA',
+            image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=500&fit=crop',
+            description: 'Complete enterprise DevOps platform delivered under formal signed Software Development Agreement (SDA) to US-based organization. Achieved 100% infrastructure reproducibility with Terraform across Dev/Staging/Production environments. Zero-manual-intervention CI/CD pipelines with GitHub Actions and Argo CD enabling sub-5-minute deployment cycles with automated rollback. Full containerization using Docker and Kubernetes with Helm charts, autoscaling policies, and namespace governance. Comprehensive DevSecOps including vulnerability scanning, secrets management, hardened container baselines, and IAM-based access control. Prometheus + Grafana monitoring with DORA metrics tracking. Enterprise documentation including SOPs, runbooks, and architecture diagrams. Project successfully completed with all acceptance criteria signed off.'
+        },
         easyshop: {
             title: 'Project EasyShop: Cloud-Native CI/CD Pipeline',
             image: 'https://images.unsplash.com/photo-1667372393119-3d4c48d07fc9?w=800&h=500&fit=crop',
